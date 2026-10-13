@@ -3,32 +3,40 @@ import Combine
 
 // MARK: - Models
 
-/// A lightweight suggestion returned while the user is still typing
-struct SearchSuggestion: Identifiable, Equatable {
-    let id: String       // animeId
-    let name: String
-    let image: String
-    let status: String   // e.g. "Đang chiếu – Tập 12"
-}
-
 /// A full search result item (same shape as an AnimeItem used on Home)
-struct AnimeSearchResult: Identifiable, Equatable {
-    let id: String       // animeId
-    let name: String
-    let posterURL: String
-    let subCount: String  // e.g. "Vietsub – 24/24"
-    let year: String
-    let rating: String
+public struct AnimeSearchResult: Identifiable, Equatable {
+    public let id: String       // animeId
+    public let name: String
+    public let posterURL: String
+    public let subCount: String  // e.g. "Vietsub – 24/24"
+    public let year: String
+    public let rating: String
+
+    public init(id: String, name: String, posterURL: String, subCount: String, year: String, rating: String) {
+        self.id = id
+        self.name = name
+        self.posterURL = posterURL
+        self.subCount = subCount
+        self.year = year
+        self.rating = rating
+    }
 }
 
 /// Active search filters
-struct SearchFilter: Equatable {
-    var genre: String?     // nil = all genres
-    var year: String?      // nil = all years
-    var status: String?    // "ongoing" | "completed" | nil
-    var sortBy: String     // "newest" | "name" | "views"
+public struct SearchFilter: Equatable {
+    public var genre: String?     // nil = all genres
+    public var year: String?      // nil = all years
+    public var status: String?    // "ongoing" | "completed" | nil
+    public var sortBy: String     // "newest" | "name" | "views"
 
-    static let `default` = SearchFilter(genre: nil, year: nil, status: nil, sortBy: "newest")
+    public static let `default` = SearchFilter(genre: nil, year: nil, status: nil, sortBy: "newest")
+
+    public init(genre: String? = nil, year: String? = nil, status: String? = nil, sortBy: String = "newest") {
+        self.genre = genre
+        self.year = year
+        self.status = status
+        self.sortBy = sortBy
+    }
 }
 
 // MARK: - UI State

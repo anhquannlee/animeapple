@@ -251,78 +251,32 @@ private struct SearchHistoryChips: View {
     let onDelete: (String) -> Void
 
     var body: some View {
-        // Simple VStack-wrapped row chips approach
-        FlowLayout(spacing: 8) {
-            ForEach(history, id: \.self) { term in
-                HStack(spacing: 4) {
-                    Image(systemName: "clock")
-                        .font(.system(size: 11))
-                        .foregroundColor(Color("TextGrey"))
-                    Text(term)
-                        .font(.system(size: 13))
-                        .foregroundColor(Color("TextPrimary"))
-                    Button {
-                        onDelete(term)
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 9, weight: .bold))
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(history, id: \.self) { term in
+                    HStack(spacing: 4) {
+                        Image(systemName: "clock")
+                            .font(.system(size: 11))
                             .foregroundColor(Color("TextGrey"))
+                        Text(term)
+                            .font(.system(size: 13))
+                            .foregroundColor(Color("TextPrimary"))
+                        Button {
+                            onDelete(term)
+                        } label: {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 9, weight: .bold))
+                                .foregroundColor(Color("TextGrey"))
+                        }
                     }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(Color("DarkCard"))
+                    .cornerRadius(20)
+                    .onTapGesture { onTap(term) }
                 }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 6)
-                .background(Color("DarkCard"))
-                .cornerRadius(20)
-                .onTapGesture { onTap(term) }
             }
         }
-    }
-}
-
-// MARK: - FlowLayout (simple wrapping layout)
-
-/// A simple chip/tag flow layout that wraps to new rows.
-private struct FlowLayout: Layout {
-    var spacing: CGFloat = 8
-
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let rows = computeRows(proposal: proposal, subviews: subviews)
-        let height = rows.map { row in
-            row.map { $0.sizeThatFits(.unspecified).height }.max() ?? 0
-        }.reduce(0) { $0 + $1 + spacing } - spacing
-        return CGSize(width: proposal.width ?? 0, height: max(height, 0))
-    }
-
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let rows = computeRows(proposal: proposal, subviews: subviews)
-        var y = bounds.minY
-        for row in rows {
-            var x = bounds.minX
-            let rowHeight = row.map { $0.sizeThatFits(.unspecified).height }.max() ?? 0
-            for subview in row {
-                let size = subview.sizeThatFits(.unspecified)
-                subview.place(at: CGPoint(x: x, y: y), proposal: ProposedViewSize(size))
-                x += size.width + spacing
-            }
-            y += rowHeight + spacing
-        }
-    }
-
-    private func computeRows(proposal: ProposedViewSize, subviews: Subviews) -> [[LayoutSubview]] {
-        let maxWidth = proposal.width ?? .infinity
-        var rows: [[LayoutSubview]] = [[]]
-        var currentRowWidth: CGFloat = 0
-
-        for subview in subviews {
-            let size = subview.sizeThatFits(.unspecified)
-            if currentRowWidth + size.width > maxWidth, !rows[rows.count - 1].isEmpty {
-                rows.append([])
-                currentRowWidth = 0
-            }
-            rows[rows.count - 1].append(subview)
-            currentRowWidth += size.width + spacing
-        }
-        return rows
     }
 }
 
@@ -476,40 +430,6 @@ struct AsyncPosterImage: View {
             Color.white.opacity(0.08)
                 .overlay(Image(systemName: "photo").foregroundColor(Color("TextGrey")))
         }
-    }
-}
-
-// MARK: - Shimmer helper
-
-extension View {
-    /// Simple shimmer animation modifier
-    func shimmer() -> some View {
-        self.modifier(ShimmerModifier())
-    }
-}
-
-private struct ShimmerModifier: ViewModifier {
-    @State private var phase: CGFloat = 0
-
-    func body(content: Content) -> some View {
-        content
-            .overlay(
-                LinearGradient(
-                    gradient: Gradient(stops: [
-                        .init(color: .clear, location: phase - 0.3),
-                        .init(color: Color.white.opacity(0.12), location: phase),
-                        .init(color: .clear, location: phase + 0.3)
-                    ]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-                .allowsHitTesting(false)
-            )
-            .onAppear {
-                withAnimation(.linear(duration: 1.4).repeatForever(autoreverses: false)) {
-                    phase = 1.3
-                }
-            }
     }
 }
 

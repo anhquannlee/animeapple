@@ -29,6 +29,9 @@ struct AccountScreen: View {
                 NavigationLink(destination: HistoryScreen()) {
                     Label("Lịch sử xem", systemImage: "clock.arrow.circlepath")
                 }
+                NavigationLink(destination: DownloadsScreen()) {
+                    Label("Đã tải xuống", systemImage: "arrow.down.circle")
+                }
                 NavigationLink(destination: FollowScreen()) {
                     Label("Đang theo dõi", systemImage: "heart")
                 }

@@ -7,14 +7,6 @@
 import Foundation
 import Combine
 
-// MARK: - WatchProgress model (lightweight, stored in UserDefaults)
-
-struct WatchProgress: Codable, Hashable {
-    var cur: Double        // seconds
-    var dur: Double        // seconds
-    var chapId: String?
-}
-
 // MARK: - Detail UI State
 
 struct DetailUiState {
@@ -30,7 +22,7 @@ struct DetailUiState {
 
     // Player
     var isPlayerLoading: Bool = false
-    var playerConfig: PlayerConfig? = nil
+    var playerConfig: PlayerData? = nil
     var playerError: String? = nil
     var currentChapter: ChapterInfo? = nil
     var servers: [ServerInfo] = []
@@ -310,7 +302,7 @@ final class DetailViewModel: ObservableObject {
     private func loadPlayer(chapter: ChapterInfo, server: ServerInfo) async {
         do {
             let config = try await withTimeout(seconds: Self.playerTimeoutSec) {
-                try await self.animeRepo.getPlayerLink(chapter: chapter, server: server)
+                try await self.animeRepo.getPlayerLink(server: server)
             }
             uiState.playerConfig = config
             uiState.isPlayerLoading = false

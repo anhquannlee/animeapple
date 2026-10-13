@@ -21,6 +21,10 @@ public final class HistoryRepository {
         return []
     }
 
+    public func getLastChapterId(seasonId: String) async throws -> String? {
+        return manager.getHistory(animeId: seasonId)?.chapId
+    }
+
     public func setSingleProgress(
         name: String,
         poster: String,

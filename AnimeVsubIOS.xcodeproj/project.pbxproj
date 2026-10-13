@@ -23,6 +23,7 @@
 		// Local
 		A030 /* PreferencesManager.swift */ = {isa = PBXBuildFile; fileRef = F030 /* PreferencesManager.swift */; };
 		A031 /* HistoryManager.swift */ = {isa = PBXBuildFile; fileRef = F031 /* HistoryManager.swift */; };
+		A032 /* DownloadManager.swift */ = {isa = PBXBuildFile; fileRef = F032 /* DownloadManager.swift */; };
 		// Repository
 		A040 /* AnimeRepository.swift */ = {isa = PBXBuildFile; fileRef = F040 /* AnimeRepository.swift */; };
 		A041 /* HistoryRepository.swift */ = {isa = PBXBuildFile; fileRef = F041 /* HistoryRepository.swift */; };
@@ -70,6 +71,8 @@
 		A171 /* FollowViewModel.swift */ = {isa = PBXBuildFile; fileRef = F171 /* FollowViewModel.swift */; };
 		// About
 		A180 /* AboutScreen.swift */ = {isa = PBXBuildFile; fileRef = F180 /* AboutScreen.swift */; };
+		// Downloads
+		A190 /* DownloadsScreen.swift */ = {isa = PBXBuildFile; fileRef = F190 /* DownloadsScreen.swift */; };
 		// Resources
 		A900 /* Info.plist */ = {isa = PBXBuildFile; fileRef = F900 /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -87,6 +90,7 @@
 		F022 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F030 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		F031 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		F032 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		F040 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
 		F041 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		F050 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		F170 /* FollowScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowScreen.swift; sourceTree = "<group>"; };
 		F171 /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
 		F180 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
+		F190 /* DownloadsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsScreen.swift; sourceTree = "<group>"; };
 		F900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FPROJ /* AnimeVsubIOS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = wrapper.pb-project; path = AnimeVsubIOS.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,7 +199,7 @@
 		GRP_LOCAL /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				F030, F031,
+				F030, F031, F032,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				GRP_HOME, GRP_DETAIL, GRP_PLAYER, GRP_SEARCH,
 				GRP_HISTORY, GRP_SETTINGS, GRP_ACCOUNT, GRP_NOTIF,
 				GRP_SCHEDULE, GRP_RANKINGS, GRP_CATEGORY, GRP_FOLLOW, GRP_ABOUT,
+				GRP_DOWNLOADS,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 		GRP_CATEGORY = { isa = PBXGroup; children = (F160, F161); path = Category; sourceTree = "<group>"; };
 		GRP_FOLLOW = { isa = PBXGroup; children = (F170, F171); path = Follow; sourceTree = "<group>"; };
 		GRP_ABOUT = { isa = PBXGroup; children = (F180); path = About; sourceTree = "<group>"; };
+		GRP_DOWNLOADS = { isa = PBXGroup; children = (F190); path = Downloads; sourceTree = "<group>"; };
 		GRP_COMPONENTS /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,7 +340,7 @@
 				A001, A002,
 				A010, A011, A012, A013, A014,
 				A020, A021, A022,
-				A030, A031,
+				A030, A031, A032,
 				A040, A041,
 				A050, A051, A052,
 				A060, A061, A062,
@@ -348,7 +355,7 @@
 				A150, A151,
 				A160, A161,
 				A170, A171,
-				A180,
+				A180, A190,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -435,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -457,7 +464,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AnimeVsubIOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +491,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AnimeVsubIOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

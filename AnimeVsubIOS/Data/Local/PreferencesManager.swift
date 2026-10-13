@@ -134,6 +134,7 @@ final class PreferencesManager: ObservableObject {
     @Published var dbNotifyInterval: Int
     @Published var enableBackgroundSync: Bool
     @Published var enableNotifications: Bool
+    @Published var historySyncInterval: Int = 5
 
     // Break / bedtime reminders
     @Published var breakReminderEnabled: Bool
@@ -289,6 +290,16 @@ final class PreferencesManager: ObservableObject {
             history.removeFirst()
         }
         searchHistory = history
+    }
+
+    /// Saves full search history list.
+    func saveSearchHistory(_ history: [String]) {
+        searchHistory = history
+    }
+
+    /// Loads the stored search history list.
+    func loadSearchHistory() -> [String] {
+        return searchHistory
     }
 
     /// Clears the stored search history.

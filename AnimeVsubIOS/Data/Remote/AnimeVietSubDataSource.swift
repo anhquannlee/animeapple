@@ -170,7 +170,7 @@ public final class AnimeVietSubDataSource: AnimeDataSource {
         return CommentResponse(status: 200, html: "", page: 1, total: 0)
     }
     public func getReplies(commentId: String, sort: FilterOption?, offset: Int) async throws -> ReplyResponse {
-        return ReplyResponse(status: 200, html: "", page: 1, total: 0)
+        return ReplyResponse(status: 200, html: "")
     }
     public func postComment(filmId: String, content: String, isSpoiler: Bool, episodeId: String?, parentId: String, threadKey: String?) async throws -> PostCommentResponse {
         return PostCommentResponse(status: 200, message: "OK", item: nil)
@@ -227,7 +227,7 @@ public final class AnimeVietSubDataSource: AnimeDataSource {
 
     private func parseSuggestions(html: String) -> [SearchSuggestion] {
         return parseCards(from: html).map {
-            SearchSuggestion(id: $0.animeId, name: $0.name, image: $0.image, status: $0.quality ?? "HD")
+            SearchSuggestion(animeId: $0.animeId, image: $0.image, name: $0.name, status: $0.quality ?? "HD")
         }
     }
 
