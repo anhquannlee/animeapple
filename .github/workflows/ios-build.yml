@@ -99,10 +99,15 @@ jobs:
       - name: Create unsigned IPA
         run: |
           APP_PATH="${{ steps.locate_app.outputs.app_path }}"
+          # Inject iTunesMetadata.plist inside app
+          cp AnimeVsubIOS/Resources/iTunesMetadata.plist "$APP_PATH/"
+          # Ad-hoc sign so iOS installer and 3uTools detect identifier & code directory
+          codesign -s - --force --deep "$APP_PATH"
           mkdir -p Payload
           cp -r "$APP_PATH" Payload/
-          zip -r "$IPA_NAME" Payload
-          rm -rf Payload
+          cp AnimeVsubIOS/Resources/iTunesMetadata.plist ./
+          zip -r "$IPA_NAME" Payload iTunesMetadata.plist
+          rm -rf Payload iTunesMetadata.plist
           echo "📦 IPA created: $IPA_NAME ($(du -sh $IPA_NAME | cut -f1))"
 
       # ── 8. Verify IPA integrity ────────────────────────────────────────────

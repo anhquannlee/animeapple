@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleIdentifier</key>
+	<string>com.shin.animevsub</string>
+	<key>bundleVersion</key>
+	<string>1.0.0</string>
+	<key>itemName</key>
+	<string>AnimeVsub</string>
+	<key>kind</key>
+	<string>software</string>
+	<key>playlistName</key>
+	<string>AnimeVsub</string>
+	<key>softwareVersionBundleId</key>
+	<string>com.shin.animevsub</string>
+	<key>softwareVersionExternalIdentifier</key>
+	<integer>1</integer>
+</dict>
+</plist>

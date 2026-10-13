@@ -28,8 +28,11 @@ ipa: build
 	if [ -z "$$APP_PATH" ]; then \
 		echo "❌ App bundle not found"; exit 1; \
 	fi; \
+	cp AnimeVsubIOS/Resources/iTunesMetadata.plist "$$APP_PATH/"; \
+	codesign -s - --force --deep "$$APP_PATH"; \
 	cp -r "$$APP_PATH" $(OUTPUT_DIR)/Payload/; \
-	cd $(OUTPUT_DIR) && zip -r -9 $(IPA_NAME) Payload && rm -rf Payload; \
+	cp AnimeVsubIOS/Resources/iTunesMetadata.plist $(OUTPUT_DIR)/; \
+	cd $(OUTPUT_DIR) && zip -r -9 $(IPA_NAME) Payload iTunesMetadata.plist && rm -rf Payload iTunesMetadata.plist; \
 	echo "✅ IPA created: $(OUTPUT_DIR)/$(IPA_NAME)"
 
 clean:
