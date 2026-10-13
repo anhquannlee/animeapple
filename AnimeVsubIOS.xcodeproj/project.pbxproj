@@ -3,129 +3,49 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		// App
-		A001 /* AnimeVsubApp.swift */ = {isa = PBXBuildFile; fileRef = F001 /* AnimeVsubApp.swift */; };
-		A002 /* ContentView.swift */ = {isa = PBXBuildFile; fileRef = F002 /* ContentView.swift */; };
-		// Models
-		A010 /* AnimeModels.swift */ = {isa = PBXBuildFile; fileRef = F010 /* AnimeModels.swift */; };
-		A011 /* HistoryModels.swift */ = {isa = PBXBuildFile; fileRef = F011 /* HistoryModels.swift */; };
-		A012 /* PlaylistModels.swift */ = {isa = PBXBuildFile; fileRef = F012 /* PlaylistModels.swift */; };
-		A013 /* CommentModels.swift */ = {isa = PBXBuildFile; fileRef = F013 /* CommentModels.swift */; };
-		A014 /* NotificationModels.swift */ = {isa = PBXBuildFile; fileRef = F014 /* NotificationModels.swift */; };
-		// Remote
-		A020 /* AnimeDataSource.swift */ = {isa = PBXBuildFile; fileRef = F020 /* AnimeDataSource.swift */; };
-		A021 /* AnimeVietSubDataSource.swift */ = {isa = PBXBuildFile; fileRef = F021 /* AnimeVietSubDataSource.swift */; };
-		A022 /* NetworkManager.swift */ = {isa = PBXBuildFile; fileRef = F022 /* NetworkManager.swift */; };
-		// Local
-		A030 /* PreferencesManager.swift */ = {isa = PBXBuildFile; fileRef = F030 /* PreferencesManager.swift */; };
-		A031 /* HistoryManager.swift */ = {isa = PBXBuildFile; fileRef = F031 /* HistoryManager.swift */; };
-		A032 /* DownloadManager.swift */ = {isa = PBXBuildFile; fileRef = F032 /* DownloadManager.swift */; };
-		// Repository
-		A040 /* AnimeRepository.swift */ = {isa = PBXBuildFile; fileRef = F040 /* AnimeRepository.swift */; };
-		A041 /* HistoryRepository.swift */ = {isa = PBXBuildFile; fileRef = F041 /* HistoryRepository.swift */; };
-		// Home
-		A050 /* HomeViewModel.swift */ = {isa = PBXBuildFile; fileRef = F050 /* HomeViewModel.swift */; };
-		A051 /* HomeScreen.swift */ = {isa = PBXBuildFile; fileRef = F051 /* HomeScreen.swift */; };
-		A052 /* CarouselView.swift */ = {isa = PBXBuildFile; fileRef = F052 /* CarouselView.swift */; };
-		// Common Components
-		A060 /* AnimeCardView.swift */ = {isa = PBXBuildFile; fileRef = F060 /* AnimeCardView.swift */; };
-		A061 /* LoadingView.swift */ = {isa = PBXBuildFile; fileRef = F061 /* LoadingView.swift */; };
-		A062 /* ErrorView.swift */ = {isa = PBXBuildFile; fileRef = F062 /* ErrorView.swift */; };
-		// Detail
-		A070 /* DetailViewModel.swift */ = {isa = PBXBuildFile; fileRef = F070 /* DetailViewModel.swift */; };
-		A071 /* DetailScreen.swift */ = {isa = PBXBuildFile; fileRef = F071 /* DetailScreen.swift */; };
-		// Player
-		A080 /* PlayerViewModel.swift */ = {isa = PBXBuildFile; fileRef = F080 /* PlayerViewModel.swift */; };
-		A081 /* PlayerScreen.swift */ = {isa = PBXBuildFile; fileRef = F081 /* PlayerScreen.swift */; };
-		A082 /* ServerSelectorSheet.swift */ = {isa = PBXBuildFile; fileRef = F082 /* ServerSelectorSheet.swift */; };
-		// Search
-		A090 /* SearchViewModel.swift */ = {isa = PBXBuildFile; fileRef = F090 /* SearchViewModel.swift */; };
-		A091 /* SearchScreen.swift */ = {isa = PBXBuildFile; fileRef = F091 /* SearchScreen.swift */; };
-		// History
-		A100 /* HistoryViewModel.swift */ = {isa = PBXBuildFile; fileRef = F100 /* HistoryViewModel.swift */; };
-		A101 /* HistoryScreen.swift */ = {isa = PBXBuildFile; fileRef = F101 /* HistoryScreen.swift */; };
-		// Settings
-		A110 /* SettingsViewModel.swift */ = {isa = PBXBuildFile; fileRef = F110 /* SettingsViewModel.swift */; };
-		A111 /* SettingsScreen.swift */ = {isa = PBXBuildFile; fileRef = F111 /* SettingsScreen.swift */; };
-		// Account
-		A120 /* AccountScreen.swift */ = {isa = PBXBuildFile; fileRef = F120 /* AccountScreen.swift */; };
-		A121 /* LoginScreen.swift */ = {isa = PBXBuildFile; fileRef = F121 /* LoginScreen.swift */; };
-		// Notification
-		A130 /* NotificationScreen.swift */ = {isa = PBXBuildFile; fileRef = F130 /* NotificationScreen.swift */; };
-		A131 /* NotificationViewModel.swift */ = {isa = PBXBuildFile; fileRef = F131 /* NotificationViewModel.swift */; };
-		// Schedule
-		A140 /* ScheduleScreen.swift */ = {isa = PBXBuildFile; fileRef = F140 /* ScheduleScreen.swift */; };
-		A141 /* ScheduleViewModel.swift */ = {isa = PBXBuildFile; fileRef = F141 /* ScheduleViewModel.swift */; };
-		// Rankings
-		A150 /* RankingsScreen.swift */ = {isa = PBXBuildFile; fileRef = F150 /* RankingsScreen.swift */; };
-		A151 /* RankingsViewModel.swift */ = {isa = PBXBuildFile; fileRef = F151 /* RankingsViewModel.swift */; };
-		// Category
-		A160 /* CategoryScreen.swift */ = {isa = PBXBuildFile; fileRef = F160 /* CategoryScreen.swift */; };
-		A161 /* CategoryViewModel.swift */ = {isa = PBXBuildFile; fileRef = F161 /* CategoryViewModel.swift */; };
-		// Follow
-		A170 /* FollowScreen.swift */ = {isa = PBXBuildFile; fileRef = F170 /* FollowScreen.swift */; };
-		A171 /* FollowViewModel.swift */ = {isa = PBXBuildFile; fileRef = F171 /* FollowViewModel.swift */; };
-		// About
-		A180 /* AboutScreen.swift */ = {isa = PBXBuildFile; fileRef = F180 /* AboutScreen.swift */; };
-		// Downloads
-		A190 /* DownloadsScreen.swift */ = {isa = PBXBuildFile; fileRef = F190 /* DownloadsScreen.swift */; };
-		// Resources
-		A900 /* Info.plist */ = {isa = PBXBuildFile; fileRef = F900 /* Info.plist */; };
+		B001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001 /* AppDelegate.swift */; };
+		B002 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002 /* Models.swift */; };
+		B003 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003 /* ImageLoader.swift */; };
+		B004 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004 /* PreferencesManager.swift */; };
+		B005 /* WatchHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005 /* WatchHistoryManager.swift */; };
+		B006 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006 /* DownloadManager.swift */; };
+		B007 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007 /* APIClient.swift */; };
+		B008 /* AnimeCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008 /* AnimeCardCell.swift */; };
+		B009 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* MainTabBarController.swift */; };
+		B010 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* HomeViewController.swift */; };
+		B011 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011 /* DetailViewController.swift */; };
+		B012 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012 /* PlayerViewController.swift */; };
+		B013 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013 /* DownloadsViewController.swift */; };
+		B014 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014 /* HistoryViewController.swift */; };
+		B015 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F015 /* SearchViewController.swift */; };
+		B016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016 /* SettingsViewController.swift */; };
+		B017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F017 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F001 /* AnimeVsubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeVsubApp.swift; sourceTree = "<group>"; };
-		F002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F010 /* AnimeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModels.swift; sourceTree = "<group>"; };
-		F011 /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
-		F012 /* PlaylistModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModels.swift; sourceTree = "<group>"; };
-		F013 /* CommentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModels.swift; sourceTree = "<group>"; };
-		F014 /* NotificationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModels.swift; sourceTree = "<group>"; };
-		F020 /* AnimeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDataSource.swift; sourceTree = "<group>"; };
-		F021 /* AnimeVietSubDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeVietSubDataSource.swift; sourceTree = "<group>"; };
-		F022 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F030 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
-		F031 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
-		F032 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
-		F040 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
-		F041 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
-		F050 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		F051 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		F052 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
-		F060 /* AnimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardView.swift; sourceTree = "<group>"; };
-		F061 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		F062 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		F070 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		F071 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
-		F080 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
-		F081 /* PlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreen.swift; sourceTree = "<group>"; };
-		F082 /* ServerSelectorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectorSheet.swift; sourceTree = "<group>"; };
-		F090 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		F091 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
-		F100 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		F101 /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
-		F110 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		F111 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
-		F120 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
-		F121 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		F130 /* NotificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScreen.swift; sourceTree = "<group>"; };
-		F131 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
-		F140 /* ScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreen.swift; sourceTree = "<group>"; };
-		F141 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		F150 /* RankingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsScreen.swift; sourceTree = "<group>"; };
-		F151 /* RankingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewModel.swift; sourceTree = "<group>"; };
-		F160 /* CategoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScreen.swift; sourceTree = "<group>"; };
-		F161 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		F170 /* FollowScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowScreen.swift; sourceTree = "<group>"; };
-		F171 /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
-		F180 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
-		F190 /* DownloadsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsScreen.swift; sourceTree = "<group>"; };
-		F900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FPROJ /* AnimeVsubIOS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = wrapper.pb-project; path = AnimeVsubIOS.xcodeproj; sourceTree = "<group>"; };
+		F001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F002 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F003 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F004 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		F005 /* WatchHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHistoryManager.swift; sourceTree = "<group>"; };
+		F006 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		F007 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F008 /* AnimeCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardCell.swift; sourceTree = "<group>"; };
+		F009 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F010 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F011 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F012 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		F013 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		F014 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F015 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F016 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F017 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		PROD_APP /* AnimeVsubIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeVsubIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +63,62 @@
 			isa = PBXGroup;
 			children = (
 				GRP_APP,
-				GRP_DATA,
-				GRP_UI,
-				GRP_RES,
+				GRP_CONTROLLERS,
+				GRP_VIEWS,
+				GRP_RESOURCES,
 				GRP_PRODUCTS,
 			);
 			name = AnimeVsubIOS;
+			sourceTree = "<group>";
+		};
+		GRP_APP /* App & Core */ = {
+			isa = PBXGroup;
+			children = (
+				F001 /* AppDelegate.swift */,
+				F002 /* Models.swift */,
+				F003 /* ImageLoader.swift */,
+				F004 /* PreferencesManager.swift */,
+				F005 /* WatchHistoryManager.swift */,
+				F006 /* DownloadManager.swift */,
+				F007 /* APIClient.swift */,
+			);
+			name = "Core";
 			path = AnimeVsubIOS;
+			sourceTree = "<group>";
+		};
+		GRP_CONTROLLERS /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F009 /* MainTabBarController.swift */,
+				F010 /* HomeViewController.swift */,
+				F011 /* DetailViewController.swift */,
+				F012 /* PlayerViewController.swift */,
+				F013 /* DownloadsViewController.swift */,
+				F014 /* HistoryViewController.swift */,
+				F015 /* SearchViewController.swift */,
+				F016 /* SettingsViewController.swift */,
+			);
+			name = Controllers;
+			path = AnimeVsubIOS/Controllers;
+			sourceTree = "<group>";
+		};
+		GRP_VIEWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F008 /* AnimeCardCell.swift */,
+			);
+			name = Views;
+			path = AnimeVsubIOS/Views;
+			sourceTree = "<group>";
+		};
+		GRP_RESOURCES /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F017 /* LaunchScreen.storyboard */,
+				F018 /* Info.plist */,
+			);
+			name = Resources;
+			path = AnimeVsubIOS/Resources;
 			sourceTree = "<group>";
 		};
 		GRP_PRODUCTS /* Products */ = {
@@ -158,111 +127,6 @@
 				PROD_APP,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		GRP_APP /* App */ = {
-			isa = PBXGroup;
-			children = (
-				F001,
-				F002,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		GRP_DATA /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				GRP_MODELS,
-				GRP_REMOTE,
-				GRP_LOCAL,
-				GRP_REPO,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		GRP_MODELS /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F010, F011, F012, F013, F014,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		GRP_REMOTE /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-				F020, F021, F022,
-			);
-			path = Remote;
-			sourceTree = "<group>";
-		};
-		GRP_LOCAL /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				F030, F031, F032,
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		GRP_REPO /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				F040, F041,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		GRP_UI /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				GRP_SCREENS,
-				GRP_COMPONENTS,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		GRP_SCREENS /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				GRP_HOME, GRP_DETAIL, GRP_PLAYER, GRP_SEARCH,
-				GRP_HISTORY, GRP_SETTINGS, GRP_ACCOUNT, GRP_NOTIF,
-				GRP_SCHEDULE, GRP_RANKINGS, GRP_CATEGORY, GRP_FOLLOW, GRP_ABOUT,
-				GRP_DOWNLOADS,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		GRP_HOME = { isa = PBXGroup; children = (F050, F051); path = Home; sourceTree = "<group>"; };
-		GRP_DETAIL = { isa = PBXGroup; children = (F070, F071); path = Detail; sourceTree = "<group>"; };
-		GRP_PLAYER = { isa = PBXGroup; children = (F080, F081, F082); path = Player; sourceTree = "<group>"; };
-		GRP_SEARCH = { isa = PBXGroup; children = (F090, F091); path = Search; sourceTree = "<group>"; };
-		GRP_HISTORY = { isa = PBXGroup; children = (F100, F101); path = History; sourceTree = "<group>"; };
-		GRP_SETTINGS = { isa = PBXGroup; children = (F110, F111); path = Settings; sourceTree = "<group>"; };
-		GRP_ACCOUNT = { isa = PBXGroup; children = (F120, F121); path = Account; sourceTree = "<group>"; };
-		GRP_NOTIF = { isa = PBXGroup; children = (F130, F131); path = Notification; sourceTree = "<group>"; };
-		GRP_SCHEDULE = { isa = PBXGroup; children = (F140, F141); path = Schedule; sourceTree = "<group>"; };
-		GRP_RANKINGS = { isa = PBXGroup; children = (F150, F151); path = Rankings; sourceTree = "<group>"; };
-		GRP_CATEGORY = { isa = PBXGroup; children = (F160, F161); path = Category; sourceTree = "<group>"; };
-		GRP_FOLLOW = { isa = PBXGroup; children = (F170, F171); path = Follow; sourceTree = "<group>"; };
-		GRP_ABOUT = { isa = PBXGroup; children = (F180); path = About; sourceTree = "<group>"; };
-		GRP_DOWNLOADS = { isa = PBXGroup; children = (F190); path = Downloads; sourceTree = "<group>"; };
-		GRP_COMPONENTS /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				GRP_COMP_HOME,
-				GRP_COMP_COMMON,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		GRP_COMP_HOME = { isa = PBXGroup; children = (F052); path = Home; sourceTree = "<group>"; };
-		GRP_COMP_COMMON = { isa = PBXGroup; children = (F060, F061, F062); path = Common; sourceTree = "<group>"; };
-		GRP_RES /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F900,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +143,6 @@
 			buildRules = ();
 			dependencies = ();
 			name = AnimeVsubIOS;
-			packageProductDependencies = (
-				PKG_SWIFTSOUP,
-			);
 			productName = AnimeVsubIOS;
 			productReference = PROD_APP;
 			productType = "com.apple.product-type.application";
@@ -293,16 +154,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					TGT_MAIN = {
-						CreatedOnToolsVersion = 15.0;
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
 			buildConfigurationList = BCL_PROJ;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = vi;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -311,9 +172,6 @@
 				Base,
 			);
 			mainGroup = GRP_ROOT;
-			packageReferences = (
-				PKG_SWIFTSOUP_REF,
-			);
 			productRefGroup = GRP_PRODUCTS;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,7 +185,9 @@
 		PH_RESOURCES /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = ();
+			files = (
+				B017 /* LaunchScreen.storyboard in Resources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
@@ -337,25 +197,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A001, A002,
-				A010, A011, A012, A013, A014,
-				A020, A021, A022,
-				A030, A031, A032,
-				A040, A041,
-				A050, A051, A052,
-				A060, A061, A062,
-				A070, A071,
-				A080, A081, A082,
-				A090, A091,
-				A100, A101,
-				A110, A111,
-				A120, A121,
-				A130, A131,
-				A140, A141,
-				A150, A151,
-				A160, A161,
-				A170, A171,
-				A180, A190,
+				B001 /* AppDelegate.swift in Sources */,
+				B002 /* Models.swift in Sources */,
+				B003 /* ImageLoader.swift in Sources */,
+				B004 /* PreferencesManager.swift in Sources */,
+				B005 /* WatchHistoryManager.swift in Sources */,
+				B006 /* DownloadManager.swift in Sources */,
+				B007 /* APIClient.swift in Sources */,
+				B008 /* AnimeCardCell.swift in Sources */,
+				B009 /* MainTabBarController.swift in Sources */,
+				B010 /* HomeViewController.swift in Sources */,
+				B011 /* DetailViewController.swift in Sources */,
+				B012 /* PlayerViewController.swift in Sources */,
+				B013 /* DownloadsViewController.swift in Sources */,
+				B014 /* HistoryViewController.swift in Sources */,
+				B015 /* SearchViewController.swift in Sources */,
+				B016 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,40 +223,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -414,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -428,7 +260,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -442,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -454,17 +285,13 @@
 		BC_DEBUG_TGT /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AnimeVsubIOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +299,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shin.animevsub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -481,17 +308,13 @@
 		BC_RELEASE_TGT /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AnimeVsubIOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,7 +322,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shin.animevsub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -527,29 +350,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		PKG_SWIFTSOUP_REF /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		PKG_SWIFTSOUP /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = PKG_SWIFTSOUP_REF;
-			productName = SwiftSoup;
-		};
-/* End XCSwiftPackageProductDependency section */
-
-/* Begin PBXProductReference section */
-		PROD_APP /* AnimeVsubIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeVsubIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXProductReference section */
 
 	};
 	rootObject = PROJ_MAIN /* Project object */;
