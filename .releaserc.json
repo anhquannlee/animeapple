@@ -1,0 +1,62 @@
+{
+  "branches": ["main"],
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "feat",     "release": "minor" },
+          { "type": "fix",      "release": "patch" },
+          { "type": "perf",     "release": "patch" },
+          { "type": "refactor", "release": "patch" },
+          { "type": "chore",    "release": false   },
+          { "type": "docs",     "release": false   },
+          { "type": "style",    "release": false   },
+          { "type": "test",     "release": false   },
+          { "breaking": true,   "release": "major" }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "feat",     "section": "✨ New Features"      },
+            { "type": "fix",      "section": "🐛 Bug Fixes"         },
+            { "type": "perf",     "section": "⚡ Performance"        },
+            { "type": "refactor", "section": "♻️  Refactoring"       },
+            { "type": "docs",     "section": "📖 Documentation"      },
+            { "type": "chore",    "section": "🔧 Maintenance",  "hidden": true },
+            { "type": "style",    "section": "💄 Style",        "hidden": true },
+            { "type": "test",     "section": "✅ Tests",         "hidden": true }
+          ]
+        }
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# AnimeVsub iOS — Changelog\n\nAll notable changes to this project will be documented in this file.\n"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "AnimeVsubIOS.ipa",
+            "label": "AnimeVsubIOS-${nextRelease.version}.ipa (unsigned)"
+          }
+        ],
+        "successComment": "🎉 This PR is included in [v${nextRelease.version}](${releases[0].url}).",
+        "failTitle": "❌ Release ${nextRelease.version} failed",
+        "releasedLabels": ["released"]
+      }
+    ]
+  ]
+}

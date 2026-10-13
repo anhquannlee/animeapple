@@ -1,0 +1,81 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# AnimeVsub iOS — .gitignore
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── Xcode ─────────────────────────────────────────────────────────────────────
+# User-specific Xcode settings
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# Xcode build output
+build/
+DerivedData/
+*.build/
+
+# Xcode schemes (keep shared schemes, ignore personal)
+# !*.xcodeproj/xcshareddata/
+
+# Archive
+*.xcarchive
+
+# ── Swift Package Manager ─────────────────────────────────────────────────────
+.build/
+.swiftpm/
+# Keep Package.resolved (pins dependency versions for reproducible builds)
+# !Package.resolved
+
+# ── CocoaPods (if ever added) ─────────────────────────────────────────────────
+Pods/
+*.xcworkspace
+!default.xcworkspace
+
+# ── Carthage (if ever added) ──────────────────────────────────────────────────
+Carthage/Build/
+
+# ── IPA / App bundles ─────────────────────────────────────────────────────────
+# Ignore locally created IPAs; released IPAs are GitHub Release assets
+*.ipa
+*.dSYM.zip
+*.dSYM
+Payload/
+
+# ── Environment / Secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+local.properties
+*.p12
+*.mobileprovision
+*.provisionprofile
+AuthKey_*.p8
+GoogleService-Info.plist
+
+# ── Node.js (semantic-release tooling) ────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-lock.yaml
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.swp
+*~
+.idea/
+.vscode/
+tags

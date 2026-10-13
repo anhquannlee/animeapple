@@ -1,0 +1,179 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+env:
+  PROJECT: AnimeVsubIOS.xcodeproj
+  SCHEME: AnimeVsubIOS
+  SDK: iphoneos
+
+jobs:
+  lint:
+    name: SwiftLint
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run SwiftLint (if available)
+        id: swiftlint
+        run: |
+          if command -v swiftlint &>/dev/null; then
+            echo "✅ SwiftLint found — running..."
+            swiftlint lint --reporter github-actions-logging 2>&1 | tee swiftlint_output.txt
+            EXIT_CODE=${PIPESTATUS[0]}
+            echo "exit_code=$EXIT_CODE" >> "$GITHUB_OUTPUT"
+            WARNINGS=$(grep -c "warning:" swiftlint_output.txt || true)
+            ERRORS=$(grep -c "error:" swiftlint_output.txt || true)
+            echo "warnings=$WARNINGS" >> "$GITHUB_OUTPUT"
+            echo "errors=$ERRORS" >> "$GITHUB_OUTPUT"
+            exit $EXIT_CODE
+          else
+            echo "⚠️ SwiftLint not installed on this runner — skipping lint step."
+            echo "exit_code=0" >> "$GITHUB_OUTPUT"
+            echo "warnings=0" >> "$GITHUB_OUTPUT"
+            echo "errors=0" >> "$GITHUB_OUTPUT"
+          fi
+        continue-on-error: true
+
+      - name: Upload SwiftLint report
+        if: always() && hashFiles('swiftlint_output.txt') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: swiftlint-report
+          path: swiftlint_output.txt
+          retention-days: 7
+
+  build-check:
+    name: Build Check
+    runs-on: macos-latest
+    outputs:
+      build_status: ${{ steps.build.outcome }}
+      build_error: ${{ steps.build.outputs.error_summary }}
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Xcode ─────────────────────────────────────────────────────────
+      - name: Select latest Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Print Xcode / Swift versions
+        run: |
+          xcodebuild -version
+          swift --version
+
+      # ── 3. Cache SPM ─────────────────────────────────────────────────────
+      - name: Cache Swift Package Manager
+        uses: actions/cache@v4
+        with:
+          path: |
+            .build
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      # ── 4. Resolve packages ───────────────────────────────────────────────
+      - name: Resolve Swift Package dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -clonedSourcePackagesDirPath ".build/spm"
+
+      # ── 5. Build (no signing, no IPA) ─────────────────────────────────────
+      - name: Build (unsigned, check only)
+        id: build
+        run: |
+          set -o pipefail
+          BUILD_LOG=build_log.txt
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration Debug \
+            -sdk "$SDK" \
+            -clonedSourcePackagesDirPath ".build/spm" \
+            -derivedDataPath ".build/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            ENABLE_BITCODE=NO \
+            build 2>&1 | tee "$BUILD_LOG" | xcpretty --color
+          STATUS=${PIPESTATUS[0]}
+          if [ "$STATUS" -ne 0 ]; then
+            ERRORS=$(grep -E "^.+error:" "$BUILD_LOG" | head -10 || true)
+            echo "error_summary<<EOF" >> "$GITHUB_OUTPUT"
+            echo "$ERRORS" >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
+          fi
+          exit $STATUS
+        continue-on-error: true
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log-pr-${{ github.event.pull_request.number }}
+          path: build_log.txt
+          retention-days: 7
+
+  # ── Post comment on PR ──────────────────────────────────────────────────────
+  comment:
+    name: Post PR Comment
+    runs-on: ubuntu-latest
+    needs: [lint, build-check]
+    if: always() && github.event_name == 'pull_request'
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Determine overall status
+        id: status
+        run: |
+          BUILD="${{ needs.build-check.outputs.build_status }}"
+          if [ "$BUILD" == "success" ]; then
+            echo "icon=✅" >> "$GITHUB_OUTPUT"
+            echo "label=Build passed" >> "$GITHUB_OUTPUT"
+          else
+            echo "icon=❌" >> "$GITHUB_OUTPUT"
+            echo "label=Build failed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Find existing bot comment
+        uses: peter-evans/find-comment@v3
+        id: find_comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- animevsub-pr-status -->'
+
+      - name: Create or update PR comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- animevsub-pr-status -->
+            ## ${{ steps.status.outputs.icon }} AnimeVsub iOS — PR Build Status
+
+            | Check | Result |
+            |-------|--------|
+            | 🔨 **Build** | `${{ needs.build-check.outputs.build_status }}` |
+            | 🔍 **SwiftLint** | `${{ needs.lint.result }}` |
+
+            ${{ needs.build-check.outputs.build_error != '' && format('### ❌ Build Errors\n```\n{0}\n```', needs.build-check.outputs.build_error) || '' }}
+
+            > **Commit**: `${{ github.event.pull_request.head.sha }}`
+            > **Runner**: `macos-latest` / Xcode latest-stable
+            >
+            > _To install the full signed IPA, merge to `main` and push a `v*` tag._
