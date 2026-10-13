@@ -144,6 +144,7 @@
 				GRP_PRODUCTS,
 			);
 			name = AnimeVsubIOS;
+			path = AnimeVsubIOS;
 			sourceTree = "<group>";
 		};
 		GRP_PRODUCTS /* Products */ = {

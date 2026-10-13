@@ -67,6 +67,7 @@ jobs:
       # ── 5. Build (no code signing) ─────────────────────────────────────────
       - name: Build Release (unsigned)
         run: |
+          set -o pipefail
           xcodebuild \
             -project "$PROJECT" \
             -scheme "$SCHEME" \
@@ -78,8 +79,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             AD_HOC_CODE_SIGNING_ALLOWED=YES \
-            ENABLE_BITCODE=NO \
-            | xcpretty --color || true
+            ENABLE_BITCODE=NO
 
       # ── 6. Locate .app bundle ──────────────────────────────────────────────
       - name: Locate .app bundle
